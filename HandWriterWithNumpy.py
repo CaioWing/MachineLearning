@@ -1,5 +1,4 @@
 import sys
-sys.path.append("..")
 import tqdm_utils
 import download_utils
 
@@ -112,11 +111,6 @@ def create_network():
 
 
 def forward(network, X):
-    """
-    Compute activations of all network layers by applying them sequentially.
-    Return a list of activations for each layer. 
-    Make sure last activation corresponds to network logits.
-    """
     activations = []
     input = X
     
@@ -130,9 +124,6 @@ def forward(network, X):
     return activations
 
 def predict(network,X):
-    """
-    Compute network predictions.
-    """
     logits = forward(network,X)[-1]
     return logits.argmax(axis=-1)
 
