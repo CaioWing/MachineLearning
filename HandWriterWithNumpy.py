@@ -59,11 +59,11 @@ class Dense(Layer):
         
         # compute d f / d x = d f / d dense * d dense / d x
         # where d dense/ d x = weights transposed
-        grad_input = np.dot(grad_output, self.weights.T) #<your code here> df/dx = df/ds * W.T and here df/ds = grad_output
+        grad_input = np.dot(grad_output, self.weights.T) #df/dx = df/ds * W.T and here df/ds = grad_output
         
         # compute gradient w.r.t. weights and biases
-        grad_weights = np.dot(input.T, grad_output) #<your code here>
-        grad_biases = np.sum(grad_output, axis = 0) #<your code here>
+        grad_weights = np.dot(input.T, grad_output) 
+        grad_biases = np.sum(grad_output, axis = 0) 
         
         assert grad_weights.shape == self.weights.shape and grad_biases.shape == self.biases.shape
         # Here we perform a stochastic gradient descent step. 
